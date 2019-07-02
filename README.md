@@ -11,3 +11,13 @@ AlertDialog
 RadioGroup
 RadioButton
 CheckBox
+
+
+recyclerView，listView *
+ViewGroup
+ViewPager
+WebView *
+
+LinearLayout
+FrameLayout
+RelativeLayout
