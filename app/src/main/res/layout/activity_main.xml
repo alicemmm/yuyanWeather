@@ -16,8 +16,12 @@
             android:id="@+id/input_message"
             android:layout_width="0dp"
             android:layout_height="300dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="bottom|right"
+            android:textSize="48dp"/>
     </LinearLayout>
+
+
 
     <!--first-->
     <LinearLayout
@@ -53,6 +57,28 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="*" />
+
+    </LinearLayout>
+    <!--括号-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/left_bracket"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="("/>
+
+        <Button
+            android:id="@+id/right_bracket"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text=")"/>
 
     </LinearLayout>
 
