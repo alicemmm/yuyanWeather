@@ -1,16 +1,13 @@
 package learn.xiaomi.yuyanweather;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Stack;
 
 public class MainActivity extends Activity {
@@ -35,9 +32,14 @@ public class MainActivity extends Activity {
     private Button mButtonEqual;
     private Button mButtonLeftBranket;
     private Button mButtonRightBranket;
+    private Button getmButtonDelList;
     private View.OnClickListener mButtonClickListener;
     private TextView textView = null;
     boolean clear_flag;
+    private Button mButtonRecycler;
+
+
+
 
 
     @Override
@@ -67,6 +69,10 @@ public class MainActivity extends Activity {
         mButtonEqual = findViewById(R.id.button_equal);
         mButtonLeftBranket = findViewById(R.id.left_bracket );
         mButtonRightBranket = findViewById(R.id.right_bracket);
+        getmButtonDelList = findViewById(R.id.delete_list);
+
+        mButtonRecycler = findViewById(R.id.recycler);
+
 
 
         mButtonClickListener = new View.OnClickListener() {
@@ -150,6 +156,32 @@ public class MainActivity extends Activity {
                         }
                         textView.setText(input + ((Button)view).getText());
                         break;
+
+                    case R.id.delete_list:
+                        Intent intent = new Intent(MainActivity.this, DelListActivity.class);
+                        startActivity(intent);
+
+                    case R.id.recycler:
+                        double[] arr = {89.2,32.3,54.5,65.7,76.3,45.0};
+                        Student student = new Student("zhangsan",18, arr);
+                        Intent intent1 = new Intent(MainActivity.this,DelListActivity.class);
+//                        intent1.putExtra("name","xiaomi");
+                        Bundle bundle = new Bundle();
+                        bundle.putParcelable("student",student);
+                        intent1.putExtras(bundle);
+                        startActivity(intent1);
+//                        Teacher teacher = new Teacher("zhang",30);
+//                        Teacher teacher1 = new Teacher("wang",40);
+//                        Teacher teacher2 = new Teacher("li",35);
+//                        Intent intent1 = new Intent(MainActivity.this,DelListActivity.class);
+//                        Bundle bundle = new Bundle();
+//                        bundle.putSerializable("teacher",teacher);
+//                        bundle.putSerializable("teacher1",teacher1);
+//                        bundle.putSerializable("teacher2",teacher2);
+//                        intent1.putExtras(bundle);
+//                        startActivity(intent1);
+
+
                 }
             }
         };
@@ -175,6 +207,8 @@ public class MainActivity extends Activity {
         mButtonEqual.setOnClickListener(mButtonClickListener);
         mButtonLeftBranket.setOnClickListener(mButtonClickListener);
         mButtonRightBranket.setOnClickListener(mButtonClickListener);
+        getmButtonDelList.setOnClickListener(mButtonClickListener);
+        mButtonRecycler.setOnClickListener(mButtonClickListener);
 
     }
 
